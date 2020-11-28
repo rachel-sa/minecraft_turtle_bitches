@@ -127,3 +127,19 @@ function flipDirection()
     d == east
 end
 --uh i think these are all the move-type functions i need
+
+function start()
+  for col = 1, width, do 1
+    for teir = 1, height, do 1
+      for row = 1, depth, do 1
+        if(not checkFuel())then
+          print'the turtle is out of fuel, insert more to continue. powering down,,,')
+          return
+        end
+        riseUp()
+      end
+    end
+  end
+end
+
+start()
