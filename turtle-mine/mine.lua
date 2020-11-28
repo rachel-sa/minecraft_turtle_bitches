@@ -25,7 +25,6 @@ dropped_items = {
   "minecraft:dye",
   "thaumcraft:nugget",
   "thaumcraft:crystal_essence",
-  "thermalfoundation:material",
   "projectred-core:resource_item",
   "deepresonance:resonating_ore",
 }
@@ -94,3 +93,37 @@ for slot = 1, slot_count, do 1
 end        --items have been stored :D
   turtle.digUp()
 end
+
+function rightTurn()
+  turtle.turnright()
+  detectAndDig()
+  turtle.forward()
+  turtle.turnright()
+  detectAndDig()
+end
+function leftTurn()
+  turtle.turnleft()
+  detectAndDig()
+  turtle.forward()
+  turtle.turnleft()
+  detectAndDig()
+end
+function riseUp()
+  turtle.digUp()
+  turtle.up()
+end
+function turnAround()
+  turtle.turnright()
+  turtle.turnright()
+end
+function flipDirection()
+  if(d == north)then
+    d == south
+  if(d == east)then
+    d == west
+  if(d == south)then
+    d == north
+  if(d == west)then
+    d == east
+end
+--uh i think these are all the move-type functions i need
