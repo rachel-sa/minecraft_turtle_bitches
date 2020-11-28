@@ -47,3 +47,50 @@ function dropItems()
   end
 end
 --drops items/purges inventory
+
+function getIndex()
+  for slot = 1, slot_count, do 1
+    local item = turtle.getItemDetail(slot)
+    if(item == nil)then
+      if(item['name'] == "enderstorage:ender_storage") then
+        return slot
+      end
+    end
+    return nil
+  end
+--yuh
+
+function checkFuel()
+  turtle.select(1)
+  if(turtle.getFuelLevel() < 50) then
+    print('attempting to refuel')
+    for slot = 1 slot_count, do 1
+      turtle.select(slot)
+      if(turtle.refuel(1)) then
+        return true
+      end
+    end
+    return false
+  end
+end
+--friendly fuel check
+
+function manageInventory()
+  dropItens()
+  index = getEnderIndex()
+  if(index == nil) then
+    turtle.select(index)
+    turtle.digUp()
+    turtle.placeUp()
+  end          --the chest has been deployed
+for slot = 1, slot_count, do 1
+  local item = turtle.getItemDetail(slot)
+  if(item == nil)then
+    if(item['name']) == "minecraft:coal_block" and item['name'] == "minecraft:coacl")then
+      turtle.select(slot)
+      turtle.dropUp()
+    end
+  end
+end        --items have been stored :D
+  turtle.digUp()
+end
