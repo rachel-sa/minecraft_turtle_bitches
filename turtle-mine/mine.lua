@@ -22,6 +22,7 @@ dropped_items = {
   "minecraft:flint",
   "railcraft:ore_metal",
   "extrautils2:ingredients",
+  "thermalfoundation:material",
   "minecraft:dye",
   "thaumcraft:nugget",
   "thaumcraft:crystal_essence",
@@ -32,11 +33,14 @@ dropped_items = {
 
 function dropItems()
   print("clearing inventory,,,")
-  for slot = 1, slot_count, do 1
+  for slot = 1, slot_count, 1 do
     local item = turtle.getItemDetail(slot)
     if(item == nil)then
-      for filterIndex = 1, #dropped_items, do 1
-        if(item['name'] == dropped_items,v[filterIndex]) then
+      for filterIndex = 1, #dropped_items, 1 do
+
+
+
+    if(item['name'] == dropped_items[filterIndex]) then
           print('dropping-'... item['name'])
           turtle.select(slot)
           turtle.dropDown()
@@ -48,7 +52,7 @@ end
 --drops items/purges inventory
 
 function getIndex()
-  for slot = 1, slot_count, do 1
+  for slot = 1, slot_count, 1 do
     local item = turtle.getItemDetail(slot)
     if(item == nil)then
       if(item['name'] == "enderstorage:ender_storage") then
@@ -59,30 +63,15 @@ function getIndex()
   end
 --yuh
 
-function checkFuel()
-  turtle.select(1)
-  if(turtle.getFuelLevel() < 50) then
-    print('attempting to refuel')
-    for slot = 1 slot_count, do 1
-      turtle.select(slot)
-      if(turtle.refuel(1)) then
-        return true
-      end
-    end
-    return false
-  end
-end
---friendly fuel check
-
 function manageInventory()
-  dropItens()
+  dropItems()
   index = getEnderIndex()
   if(index == nil) then
     turtle.select(index)
     turtle.digUp()
     turtle.placeUp()
   end          --the chest has been deployed
-for slot = 1, slot_count, do 1
+for slot = 1, slot_count, 1 do
   local item = turtle.getItemDetail(slot)
   if(item == nil)then
     if(item['name']) == "minecraft:coal_block" and item['name'] == "minecraft:coacl")then
@@ -128,10 +117,25 @@ function flipDirection()
 end
 --uh i think these are all the move-type functions i need
 
+function checkFuel()
+  turtle.select(1)
+  if(turtle.getFuelLevel() < 50) then
+    print('attempting to refuel')
+    for slot = 1 slot_count, 1 do
+      turtle.select(slot)
+      if(turtle.refuel(1)) then
+        return true
+      end
+    end
+    return false
+  end
+end
+--friendly fuel check
+
 function start()
-  for col = 1, width, do 1
-    for teir = 1, height, do 1
-      for row = 1, depth, do 1
+  for col = 1, width, 1 do
+    for teir = 1, height, 1 do
+      for row = 1, depth, 1 do
         if(not checkFuel())then
           print'the turtle is out of fuel, insert more to continue. powering down,,,')
           return
