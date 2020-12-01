@@ -41,7 +41,7 @@ function dropItems()
 
 
     if(item['name'] == dropped_items[filterIndex]) then
-          print('dropping-'... item['name'])
+          print('dropping-'.. item['name'])
           turtle.select(slot)
           turtle.dropDown()
         end
@@ -74,7 +74,7 @@ function manageInventory()
 for slot = 1, slot_count, 1 do
   local item = turtle.getItemDetail(slot)
   if(item == nil)then
-    if(item['name']) == "minecraft:coal_block" and item['name'] == "minecraft:coacl")then
+    if(item['name'] == "minecraft:coal_block" and item['name'] == "minecraft:coal")then
       turtle.select(slot)
       turtle.dropUp()
     end
@@ -107,13 +107,13 @@ function turnAround()
 end
 function flipDirection()
   if(d == north)then
-    d == south
+    d = south
   if(d == east)then
-    d == west
+    d = west
   if(d == south)then
-    d == north
+    d = north
   if(d == west)then
-    d == east
+    d = east
 end
 --uh i think these are all the move-type functions i need
 
@@ -121,7 +121,7 @@ function checkFuel()
   turtle.select(1)
   if(turtle.getFuelLevel() < 50) then
     print('attempting to refuel')
-    for slot = 1 slot_count, 1 do
+    for slot = 1, slot_count, 1 do
       turtle.select(slot)
       if(turtle.refuel(1)) then
         return true
@@ -137,7 +137,7 @@ function start()
     for teir = 1, height, 1 do
       for row = 1, depth, 1 do
         if(not checkFuel())then
-          print'the turtle is out of fuel, insert more to continue. powering down,,,')
+          print('the turtle is out of fuel, insert more to continue. powering down,,,')
           return
         end
         riseUp()
