@@ -44,5 +44,14 @@ fuction findLocation()
   heading = location2 - location1
   turtle.down() * 2
   return ((heading.x + math.abs(heading.z) * 2) + (heading.x + math.abs(heading.x) * 3))
-
+end
   --i doubt this works tbh if it does it would be a miracle
+
+fuction setHeadingZ(headingZ, diffZ)
+  local destinationHeading = headingZ
+  if(diffZ < 0)then
+    destinationHeading = 2
+  else if(diffZ > 0)then
+    destinationHeading = 5
+  end
+  --i think im missing something here lmao,, ill come back later
