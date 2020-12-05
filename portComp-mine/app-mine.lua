@@ -47,6 +47,18 @@ fuction findLocation()
 end
   --i doubt this works tbh if it does it would be a miracle
 
+  function faceToHeading(directionFace, destinationHeading)
+    for t = 1, math.abs(destinationHeading - directionFace), do 1
+      turtle.turnLeft()
+    end
+  else if(destinationHeading < directionFace) then
+    for t = 1, math.abs(directionFace - destinationHeading), do 1
+      turtle.turnRight()
+    end
+  end
+end
+--personal update, im in pain due to my own stupidity
+
 fuction setHeadingZ(headingZ, diffZ)
   local destinationHeading = headingZ
   if(diffZ < 0)then
@@ -54,4 +66,7 @@ fuction setHeadingZ(headingZ, diffZ)
   else if(diffZ > 0)then
     destinationHeading = 5
   end
+  faceToHeading(directionFace, destinationHeading)
   --i think im missing something here lmao,, ill come back later
+--HI ITS FURTURE ME, IM STUPID AND HAD PUT MY faceToHeading FUCTION IN A COMPLETLY
+--DIFFERENT PROGRAM BY ACCIDENT LMAO IT DIDNT EVEN MAKE SENSE,, THART WAS WHAT WAS MISSING
