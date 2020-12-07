@@ -19,12 +19,12 @@ end
 
 function parametersDuh(data)
   parameters = split(data)
-  coordantiates = {}
+  coordinates = {}
 
-  coordantiates{1} = vector.new(parameters{1}, parameters{2}, parameters{3})
-  coordantiates{2} = vector.new(parameters{4}, parameters{5}, parameters{6})
-  coordantiates{3} = vector.new(parameters{7}, parameters{8}, parameters{9})
-  return (coordantiates)
+  coordinates{1} = vector.new(parameters{1}, parameters{2}, parameters{3})
+  coordinates{2} = vector.new(parameters{4}, parameters{5}, parameters{6})
+  coordinates{3} = vector.new(parameters{7}, parameters{8}, parameters{9})
+  return (coordinates)
 end
 
 --yuh
@@ -59,14 +59,38 @@ end
 end
 --personal update, im in pain due to my own stupidity
 
+function setHeadingX(headingX, diffX)
+  local destinationHeading = headingX
+  if (diffX < 0)then
+    destinationHeading = 1 -- -x = 1
+  else if(diffX > 0)then
+    destinationHeading = 3 -- +x = 3
+  end
+  faceToHeading(directionFace, destinationHeading)
+  return destinationHeading
+end
+
 fuction setHeadingZ(headingZ, diffZ)
   local destinationHeading = headingZ
   if(diffZ < 0)then
-    destinationHeading = 2
+    destinationHeading = 2 -- -z = 2
   else if(diffZ > 0)then
-    destinationHeading = 5
+    destinationHeading = 4 -- +z = 4
   end
   faceToHeading(directionFace, destinationHeading)
+  return destinationHeading
+end
   --i think im missing something here lmao,, ill come back later
 --HI ITS FURTURE ME, IM STUPID AND HAD PUT MY faceToHeading FUCTION IN A COMPLETLY
---DIFFERENT PROGRAM BY ACCIDENT LMAO IT DIDNT EVEN MAKE SENSE,, THART WAS WHAT WAS MISSING
+--DIFFERENT PROGRAM BY ACCIDENT LMAO IT DIDNT EVEN MAKE SENSE,, THAT WAS WHAT WAS MISSING
+
+
+fuction moveTo(coordinates, heading)
+  local currentX, currentY, currentZ = gps.locate()
+  local diffX, diffY, diffZ = coordinates.X - currentY, coordinates.y - currentY, coordinates.Z - currentZ
+  print(string.format('distances for the starting place: diffX, diffY, diffZ, %d %d %d'))
+--the way i know im gonna forget these lmao:
+-- -x = 1
+-- -z = 2
+-- +x = 3
+-- +z = 4
