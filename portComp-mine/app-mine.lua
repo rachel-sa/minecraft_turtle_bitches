@@ -96,3 +96,33 @@ fuction moveTo(coordinates, heading)
 -- -z = 2
 -- +x = 3
 -- +z = 4
+
+function digAndMoveForward(n)
+  for x = 1, n, do 1
+    while(turtle.detect())do
+      turtle.dig()
+    end
+    turtle.forward()
+  end
+end
+--we do be diggin forward
+
+function digAndMoveUp(n)
+  for x = 1, n, do 1
+    while(turtle.detect())do
+      turtle.digUp()
+    end
+    turtle.up()
+  end
+end
+--we do be diggin up
+
+function digAndMoveDown(n)
+  for x = 1, n, do 1
+    while(turtle.detect())do
+      turtle.digDown()
+    end
+    turtle.down()
+  end
+end
+--we do be diggin down
