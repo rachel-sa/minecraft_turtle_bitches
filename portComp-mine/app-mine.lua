@@ -87,7 +87,9 @@ end
 
 fuction moveTo(coordinates, heading)
   local currentX, currentY, currentZ = gps.locate()
-  local diffX, diffY, diffZ = coordinates.X - currentY, coordinates.y - currentY, coordinates.Z - currentZ
+  local diffX = coordinates.X - currentX
+  local diffY = coordinates.Y - currentY
+  local diffZ = coordinates.Z - currentZ
   print(string.format('distances for the starting place: diffX, diffY, diffZ, %d %d %d'))
 --the way i know im gonna forget these lmao:
 -- -x = 1
