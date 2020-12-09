@@ -126,3 +126,15 @@ function digAndMoveDown(n)
   end
 end
 --we do be diggin down
+
+heading = setHeadingX(diffX, heading)
+digAndMoveForward(math.abs(diffX))
+--move to X start
+
+heading = setHeadingY(diffY, heading)  --doesnt Y have to be different? check this later
+digAndMoveForward(math.abs(diffY))
+--move to Y start
+
+heading = setHeadingZ(diffZ, heading)
+digAndMoveForward(math.abs(diff))
+--move to Z start
