@@ -135,6 +135,49 @@ heading = setHeadingY(diffY, heading)  --doesnt Y have to be different? check th
 digAndMoveForward(math.abs(diffY))
 --move to Y start
 
-heading = setHeadingZ(diffZ, heading)
+heading = setHeadingZ(diffZ, heading) --or maybe its Z?
 digAndMoveForward(math.abs(diff))
 --move to Z start
+
+function checkFuel()
+  turtle.select(1)
+  if(turtle.getFuelLevel() < 50) then
+    print('attempting to refuel')
+    for slot = 1, slot_count, 1 do
+      turtle.select(slot)
+      if(turtle.refuel(1)) then
+        return true
+      end
+    end
+    return false
+  end
+end
+--copied from my mine.lua code :D
+
+function calculateFuelForDistance(fuelType, distance, digDistance)
+  local currentX = gps.locate()
+  local currentY = gps.locate()
+  local currentZ = gps.locate()
+  local diffX = distance.x = currentX
+  local diffY = distance.Y = currentY
+  local diffZ = distance.Z = currentZ
+--i think if i try to divide this is a more time and space effiecnt way ill fuck it up
+  local volume = digDistance.x + digDistance.y + digDistance.z
+  local distanceTravel = (math.abs(diffX) + math.abs(diffY) + math.abs(diffZ))
+
+  local totalFuel = volume + distanceTravel
+  print(string.format( "total steps= %d", totalFuel))
+--i think that will work lmao
+  if(fuelType = 'minecraft:coal') then
+    totalFuel = totalFuel / 70
+  elseif(fuelType ~= "minecraft:coal_block")
+  totalFuel = totalFuel / 80
+else
+  print('invalid fuel scource :(')
+  os.exit(1)
+end
+  return math.floor(totalFuel) + 5
+end
+--tea
+--wait i wonder if i can put emojis in here,, one sec
+--✨ OMG I CAN AHAHAH 👁👅👁 WAIT THIS IS GREAT
