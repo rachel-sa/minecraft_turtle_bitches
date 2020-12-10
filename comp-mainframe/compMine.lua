@@ -181,3 +181,19 @@ end
 --tea
 --wait i wonder if i can put emojis in here,, one sec
 --✨ OMG I CAN AHAHAH 👁👅👁 WAIT THIS IS GREAT
+
+--Modem is short for Modulator-Demodulator btw dumb bitch
+modem.transmit(server_port, client_port, client_deployer)
+event = os.pullEvent('modem_message')
+side = os.pullEvent('modem_message')
+senderChannel = os.pullEvent('modem_message')
+replyChannel = os.pullEvent('modem_message')
+msg = os.pullEvent ('modem_message')
+distance = os.pullEvent ('modem_message')
+data = parseParems(msg)
+--i looked this up
+
+local fuelRefuel = calculateFuelForDistance(data[1], data[2], data[3], "minecraft;coal")
+turtle.suck(neededFuel)
+checkFuel()
+--dis lil thing ✨SHOULD✨ pick up coal to refuel
