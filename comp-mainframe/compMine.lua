@@ -196,4 +196,5 @@ data = parseParems(msg)
 local fuelRefuel = calculateFuelForDistance(data[1], data[2], data[3], "minecraft;coal")
 turtle.suck(neededFuel)
 checkFuel()
+print(string.format( 'getting %d fuel', neededFuel))
 --dis lil thing ✨SHOULD✨ pick up coal to refuel
