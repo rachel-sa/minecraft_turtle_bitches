@@ -31,11 +31,11 @@ end
 
 fuction findLocation()
   location1 = vector.new(gps.locate(false))
-  if turtle.forward() then
+  if turtle.moveForward() then
     break
   else
     for j = 1,6 do
-      if not turtle.forward() then
+      if not turtle.moveForward() then
         turtle.dig()
       end
     end
@@ -102,7 +102,7 @@ function digAndMoveForward(n)
     while(turtle.detect())do
       turtle.dig()
     end
-    turtle.forward()
+    turtle.moveForward()
   end
 end
 --we do be diggin forward
@@ -201,11 +201,6 @@ print(string.format( 'getting %d fuel', neededFuel))
 
 --ok this is all the mining lua (mine.lua) code!
 --ofc thisll be a bit different but yuh this is the atual mining code
-local slot_count = 15
-local d = "north"
-local width, height, depth
---just setting local stuff
-
 if(#arg == 3)then
   width = tonumber(arg[1])
   height = tonumber(arg[2])
@@ -240,10 +235,7 @@ function dropItems()
     local item = turtle.getItemDetail(slot)
     if(item == nil)then
       for filterIndex = 1, #dropped_items, 1 do
-
-
-
-    if(item['name'] == dropped_items[filterIndex]) then
+        if(item['name'] == dropped_items[filterIndex]) then
           print('dropping-'.. item['name'])
           turtle.select(slot)
           turtle.dropDown()
@@ -286,17 +278,26 @@ end        --items have been stored :D
   turtle.digUp()
 end
 
+function detectAndDig()
+  while(turtle.detect())do
+    turtle.dig()
+  end
+end
+function moveForward()
+  detectAndDig()
+  turtle.moveForward()
+end
 function rightTurn()
   turtle.turnright()
   detectAndDig()
-  turtle.forward()
+  turtle.moveForward()
   turtle.turnright()
   detectAndDig()
 end
 function leftTurn()
   turtle.turnleft()
   detectAndDig()
-  turtle.forward()
+  turtle.moveForward()
   turtle.turnleft()
   detectAndDig()
 end
@@ -305,17 +306,21 @@ function riseUp()
   turtle.up()
 end
 function turnAround()
-  turtle.turnright()
-  turtle.turnright()
+  if(d= north, south)then
+    turtle.turnright()
+    turtle.turnright()
+  if(d = east, west)then
+    turtle.turnright()
+    turtle.turnright()
 end
 function flipDirection()
-  if(d == north)then
+  if(d = north)then
     d = south
-  if(d == east)then
+  if(d = east)then
     d = west
-  if(d == south)then
+  if(d = south)then
     d = north
-  if(d == west)then
+  if(d = west)then
     d = east
 end
 --uh i think these are all the move-type functions i need
@@ -333,9 +338,9 @@ function checkFuel()
     return false
   end
 end
---friendly fuel check
+-- fuel check🌵
 
-function start()
+function startQuarry(width, height, depth)
   for col = 1, width, 1 do
     for teir = 1, height, 1 do
       for row = 1, depth, 1 do
@@ -343,7 +348,7 @@ function start()
           print('the turtle is out of fuel, insert more to continue. powering down,,,')
           return
         end
-        riseUp()
+        moveForward()
       end
     end
   end
