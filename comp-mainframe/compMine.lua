@@ -385,3 +385,14 @@ elseif(diffZ > 0)then
   going = setHeadingZ(diffZ)
   digAndMoveDown(math.abs(diffZ))
 --the Z one ;)
+  return going
+end
+
+endCoordinates = data[3]
+returnTo(endCoordinates, finishGoing)
+
+local wait = 60
+for i = 1, wait, do 1
+  os. sleep(1)
+  print(string.format('stand by for other turtles %d/$d, i, wait'))
+end
