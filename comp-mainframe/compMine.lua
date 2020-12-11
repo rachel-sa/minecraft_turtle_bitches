@@ -355,3 +355,33 @@ function startQuarry(width, height, depth)
 end
 
 start()
+
+--end of mining code :D! new code continue!
+
+
+function returnTo(coordinates, going)
+  local currentX = gps.locate()
+  local currentY = gps.locate()
+  local currentZ = gps.locate()
+  local diffX = coordinates.x - currentX
+  local diffY = coordinates.y - currentY
+  local diffZ = coordinates.z - currentZ
+  print(string.format('distance from end: %d %d %d', diffX, diffY, diffZ))
+if(diffX < 0)then
+  digAndMoveUp(diffX)
+else(diffX > 0)then
+  going = setHeadingX(diffX)
+  digAndMoveDown(math.abs(diffX))
+--idk if this is right lmao we finna go with it🥴
+if(diffY < 0)then
+  digAndMoveUp(diffY)
+elseif(diffY > 0)then
+  going = setHeadingY(diffY)
+  digAndMoveDown(math.abs(diffY))
+--the last thing,,, but for Y :D
+if(diffZ < 0)then
+  digAndMoveUp(diffZ)
+elseif(diffZ > 0)then
+  going = setHeadingZ(diffZ)
+  digAndMoveDown(math.abs(diffZ))
+--the Z one ;)
