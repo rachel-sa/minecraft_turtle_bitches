@@ -2,18 +2,17 @@ local slot_count = 15
 local client_port = 0
 local server_port = --im not sure
 local modem = preipheral.wrap('left')
-modem.open(client_port)
---local and modem stuff!
+modem.open(client_port)--local and modem stuff!
 
 function split(impustr, sep)
-  if sep = nil then
-    sep == "s"
+  if sep == nil then
+    sep = "s"
   end
   local t=()
-  for stir in string.gmatch(imputr, "({^"...sep..."})") do
+  for stir in string.gmatch(imputr, "({^"..sep.."})") do
     table.insert(tstring)
   end
-  return t
+  return
 end
 --gotta share the shit
 
@@ -29,8 +28,8 @@ end
 
 --yuh
 
-fuction findLocation()
-  location1 = vector.new(gps.locate(false))
+function findLocation()
+  location = vector.new(gps.locate(false))
   if turtle.moveForward() then
     break
   else
@@ -42,13 +41,13 @@ fuction findLocation()
   end
   location2 = vector.new(gps.locate(false))
   heading = location2 - location1
-  turtle.down() * 2
+  --deleted   "turtle.down() * 2" bc i couldnt figure out the error
   return ((heading.x + math.abs(heading.z) * 2) + (heading.x + math.abs(heading.x) * 3))
 end
   --i doubt this works tbh if it does it would be a miracle
 
   function faceToHeading(directionFace, destinationHeading)
-    for t = 1, math.abs(destinationHeading - directionFace), do 1
+    for t = 1, math.abs(destinationHeading - directionFace), 1 do
       turtle.turnLeft()
     end
   else if(destinationHeading < directionFace) then
@@ -70,7 +69,7 @@ function setHeadingX(headingX, diffX)
   return destinationHeading
 end
 
-fuction setHeadingZ(headingZ, diffZ)
+function setHeadingZ(headingZ, diffZ)
   local destinationHeading = headingZ
   if(diffZ < 0)then
     destinationHeading = 2 -- -z = 2
@@ -85,7 +84,7 @@ end
 --DIFFERENT PROGRAM BY ACCIDENT LMAO IT DIDNT EVEN MAKE SENSE,, THAT WAS WHAT WAS MISSING
 
 
-fuction moveTo(coordinates, heading)
+function moveTo(coordinates, heading)
   local currentX, currentY, currentZ = gps.locate()
   local diffX = coordinates.X - currentX
   local diffY = coordinates.Y - currentY
@@ -98,7 +97,7 @@ fuction moveTo(coordinates, heading)
 -- +z = 4
 
 function digAndMoveForward(n)
-  for x = 1, n, do 1
+  for x = 1, n, 1 do
     while(turtle.detect())do
       turtle.dig()
     end
@@ -108,7 +107,7 @@ end
 --we do be diggin forward
 
 function digAndMoveUp(n)
-  for x = 1, n, do 1
+  for x = 1, n, 1 do
     while(turtle.detect())do
       turtle.digUp()
     end
@@ -118,7 +117,7 @@ end
 --we do be diggin up
 
 function digAndMoveDown(n)
-  for x = 1, n, do 1
+  for x = 1, n, 1 do
     while(turtle.detect())do
       turtle.digDown()
     end
@@ -158,9 +157,9 @@ function calculateFuelForDistance(fuelType, distance, digDistance)
   local currentX = gps.locate()
   local currentY = gps.locate()
   local currentZ = gps.locate()
-  local diffX = distance.x = currentX
-  local diffY = distance.Y = currentY
-  local diffZ = distance.Z = currentZ
+  local diffX = distance.x(currentX)
+  local diffY = distance.Y(currentY)
+  local diffZ = distance.Z(currentZ)
 --i think if i try to divide this is a more time and space effiecnt way ill fuck it up
   local volume = digDistance.x + digDistance.y + digDistance.z
   local distanceTravel = (math.abs(diffX) + math.abs(diffY) + math.abs(diffZ))
@@ -251,7 +250,7 @@ function getIndex()
     local item = turtle.getItemDetail(slot)
     if(item == nil)then
       if(item['name'] == "enderstorage:ender_storage") then
-        return slot
+        return slot --
       end
     end
     return nil

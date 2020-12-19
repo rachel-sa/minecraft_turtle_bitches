@@ -37,10 +37,7 @@ function dropItems()
     local item = turtle.getItemDetail(slot)
     if(item == nil)then
       for filterIndex = 1, #dropped_items, 1 do
-
-
-
-    if(item['name'] == dropped_items[filterIndex]) then
+        if(item['name'] == dropped_items[filterIndex]) then
           print('dropping-'.. item['name'])
           turtle.select(slot)
           turtle.dropDown()
