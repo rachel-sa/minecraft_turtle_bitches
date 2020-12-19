@@ -47,11 +47,12 @@ end
   --i doubt this works tbh if it does it would be a miracle
 
   function faceToHeading(directionFace, destinationHeading)
-    for t = 1, math.abs(destinationHeading - directionFace), 1 do
+    if(destinationHeading > directionFace)
+    then for t = 1, math.abs(destinationHeading - directionFace), 1 do
       turtle.turnLeft()
     end
-  else if(destinationHeading < directionFace) then
-    for t = 1, math.abs(directionFace - destinationHeading), do 1
+    else if(destinationHeading < directionFace) then
+    for t = 1, math.abs(directionFace - destinationHeading), 1 do
       turtle.turnRight()
     end
   end
@@ -167,9 +168,9 @@ function calculateFuelForDistance(fuelType, distance, digDistance)
   local totalFuel = volume + distanceTravel
   print(string.format( "total steps= %d", totalFuel))
 --i think that will work lmao
-  if(fuelType = 'minecraft:coal') then
+  if(fuelType == 'minecraft:coal') then
     totalFuel = totalFuel / 70
-  elseif(fuelType ~= "minecraft:coal_block")
+  elseif(fuelType ~= ("minecraft:coal_block")then
   totalFuel = totalFuel / 80
 else
   print('invalid fuel scource :(')
@@ -305,7 +306,7 @@ function riseUp()
   turtle.up()
 end
 function turnAround()
-  if(d= north, south)then
+  if(d = north, south)then
     turtle.turnright()
     turtle.turnright()
   if(d = east, west)then
