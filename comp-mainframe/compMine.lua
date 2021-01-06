@@ -369,7 +369,7 @@ function returnTo(coordinates, going)
   print(string.format('distance from end: %d %d %d', diffX, diffY, diffZ))
 if(diffX < 0)then
   digAndMoveUp(diffX)
-else(diffX > 0)then
+elseif(diffX > 0)then
   going = setHeadingX(diffX)
   digAndMoveDown(math.abs(diffX))
 --idk if this is right lmao we finna go with it🥴
@@ -392,7 +392,7 @@ endCoordinates = data[3]
 returnTo(endCoordinates, finishGoing)
 
 local wait = 60
-for i = 1, wait, do 1
+for i = 1, wait, 1 do
   os. sleep(1)
   print(string.format('stand by for other turtles %d/$d, i, wait'))
 end
