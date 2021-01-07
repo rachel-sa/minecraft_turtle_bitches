@@ -1,10 +1,14 @@
+local size = vector.new()
+if vector.new() ~= nil then
+end
+--in a vain attempt to solve nil errors that i dont understand
+
 local server_port = 420
 local app_port = 70
-local size = vector.new()
 modem = peripheral.warp('back')
 --local and modem shit🥴
 
-if (arguement = 3)then
+if (arguement == 3)then
   size.x = tonumber(arguement[1])
   size.y = tonumber(arguement[2])
   size.z = tonumber(agruement[3])
