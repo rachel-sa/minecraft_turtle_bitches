@@ -21,4 +21,4 @@ local amountText = string.format("%d %d %d %d %d", spot.x, spot.y - 1, spot.z,
 
   print(string.format("spotting %d %d %d", pot.x, spot.y - 1, spot.z))
   modem.transmit(server_port, app_port, amountText)
---ok this is fine ig 
+--ok this is fine ig
