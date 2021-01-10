@@ -8,10 +8,10 @@ local app_port = 70
 modem = peripheral.warp('back')
 --local and modem shit🥴
 
-if (arguement == 3)then
-  size.x = tonumber(arguement[1])
-  size.y = tonumber(arguement[2])
-  size.z = tonumber(agruement[3])
+if (argument == 3)then
+  size.x = tonumber(argument[1])
+  size.y = tonumber(argument[2])
+  size.z = tonumber(argument[3])
 else
   print('i need a fucking size')
   os.exit()
