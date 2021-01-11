@@ -58,6 +58,7 @@ function getIndex()
     end
     return nil
   end
+end
 --yuh
 
 function manageInventory()
@@ -112,6 +113,9 @@ function flipDirection()
   if(d == west)then
     d = east
   end
+end
+end
+end
 end
 --uh i think these are all the move-type functions i need
 
