@@ -111,6 +111,7 @@ function flipDirection()
     d = north
   if(d == west)then
     d = east
+  end
 end
 --uh i think these are all the move-type functions i need
 
